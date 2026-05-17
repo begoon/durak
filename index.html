@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>Дурак</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>ДУРАК</h1>
+      <div class="meta">
+        <span>козырь: <b id="trump-suit"></b></span>
+        <span>колода: <b id="deck-count"></b></span>
+        <span>бита: <b id="discard-count"></b></span>
+      </div>
+      <button id="btn-restart">Заново</button>
+    </header>
+
+    <div class="zone" id="opponent-zone">
+      <div class="hand opponent" id="opponent-hand"></div>
+    </div>
+
+    <div class="zone" id="table-zone">
+      <div class="deck-area">
+        <div class="deck" id="deck"></div>
+        <div class="discard" id="discard">bita</div>
+      </div>
+      <div class="table" id="table"></div>
+    </div>
+
+    <div id="controls">
+      <button id="btn-take" class="danger">Беру</button>
+      <button id="btn-done" class="primary">Бито</button>
+      <button id="btn-pass">Пас</button>
+    </div>
+
+    <div class="zone" id="hand-zone">
+      <div class="hand" id="hand"></div>
+    </div>
+
+    <div id="status"></div>
+  </div>
+
+  <div id="banner">
+    <h2 id="banner-text"></h2>
+    <button class="primary" onclick="start()">Ещё раз</button>
+  </div>
+
+  <script src="game.js"></script>
+  <script src="ai.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>
