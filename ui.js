@@ -460,12 +460,27 @@ function doTransfer(card) {
 }
 
 function promptDefendOrTransfer(card) {
-  const choice = confirm(
-    `Перевести атаку картой ${RANK_LABEL[card.rank]}${SUIT_GLYPH[card.suit]}?\n` +
-    `ОК — перевести, Отмена — отбиться.`
-  );
-  if (choice) doTransfer(card);
-  else doDefendAuto(card);
+  const modal = document.getElementById('choice-modal');
+  const cardEl = document.getElementById('choice-card');
+  const text = document.getElementById('choice-text');
+  const defendBtn = document.getElementById('choice-defend');
+  const transferBtn = document.getElementById('choice-transfer');
+  const cancelBtn = document.getElementById('choice-cancel');
+
+  cardEl.innerHTML = '';
+  cardEl.appendChild(makeCardEl(card, false));
+  text.textContent = 'Отбить эту карту или перевести атаку?';
+
+  function close() {
+    modal.classList.remove('show');
+    defendBtn.onclick = null;
+    transferBtn.onclick = null;
+    cancelBtn.onclick = null;
+  }
+  defendBtn.onclick = () => { close(); doDefendAuto(card); };
+  transferBtn.onclick = () => { close(); doTransfer(card); };
+  cancelBtn.onclick = close;
+  modal.classList.add('show');
 }
 
 function doPickup() {

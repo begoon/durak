@@ -389,3 +389,41 @@ button.danger:active:not(:disabled) { background: #8b211c; }
   outline-offset: 2px;
   border-radius: 8px;
 }
+
+#choice-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 42, 38, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  padding: 20px;
+}
+#choice-modal.show { display: flex; }
+.choice-box {
+  background: #f4f1ea;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  max-width: 320px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+#choice-card .card {
+  pointer-events: none;
+}
+.choice-box p {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  color: #2c2a26;
+}
+.choice-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
