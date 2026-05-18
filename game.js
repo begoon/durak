@@ -185,7 +185,7 @@ function applyTransfer(state, card) {
 function applyEndAttack(state) {
   if (state.phase !== 'attack') return;
   if (state.table.length === 0) return;
-  endBout(state, false);
+  endBout(state);
 }
 
 // Defender chooses to pick up. Attacker may still throw matching-rank
