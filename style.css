@@ -124,6 +124,7 @@ header .meta b { color: #2c2a26; font-weight: 600; }
 #opponent-zone {
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 #table-zone {
   position: relative;
@@ -165,14 +166,19 @@ header .meta b { color: #2c2a26; font-weight: 600; }
 
 @media (max-width: 720px) {
   .hand {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
     padding: 2px;
+    width: 100%;
+    min-width: 0;
+  }
+  .hand .card { flex-shrink: 0; }
+  #hand-zone {
+    overflow-y: auto;
     scrollbar-width: none;
   }
-  .hand::-webkit-scrollbar { display: none; }
-  .hand .card { flex-shrink: 0; }
+  #hand-zone::-webkit-scrollbar { display: none; }
 }
 
 .hand.opponent .card.face-down {
@@ -215,12 +221,11 @@ header .meta b { color: #2c2a26; font-weight: 600; }
 
 @media (max-width: 720px) {
   .table {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    justify-content: flex-start;
-    scrollbar-width: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    overflow: hidden;
   }
-  .table::-webkit-scrollbar { display: none; }
   .table .slot { flex-shrink: 0; }
 }
 .table.drop-active { background: #f6efde; }
