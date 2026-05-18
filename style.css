@@ -124,14 +124,9 @@ header .meta b { color: #2c2a26; font-weight: 600; }
 #opponent-zone {
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-#opponent-zone .hand.opponent {
-  flex: 1;
-  min-width: 0;
-  justify-content: center;
 }
 #table-zone {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,6 +136,23 @@ header .meta b { color: #2c2a26; font-weight: 600; }
 #hand-zone {
   display: flex;
   align-items: center;
+}
+
+.deck-area {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+  pointer-events: none;
+  transform: scale(0.78);
+  transform-origin: bottom right;
+}
+@media (max-width: 720px) {
+  .deck-area { transform: scale(0.65); right: 4px; bottom: 4px; }
 }
 
 .hand {
@@ -166,13 +178,6 @@ header .meta b { color: #2c2a26; font-weight: 600; }
 .hand.opponent .card.face-down {
   width: calc(var(--card-w) * 0.85);
   height: calc(var(--card-h) * 0.85);
-}
-
-.deck-area {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
 }
 
 .deck {
