@@ -124,12 +124,17 @@ header .meta b { color: #2c2a26; font-weight: 600; }
 #opponent-zone {
   display: flex;
   align-items: center;
+  gap: 10px;
+}
+#opponent-zone .hand.opponent {
+  flex: 1;
+  min-width: 0;
+  justify-content: center;
 }
 #table-zone {
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: nowrap;
+  justify-content: center;
   min-height: 0;
   overflow: hidden;
 }
@@ -166,37 +171,25 @@ header .meta b { color: #2c2a26; font-weight: 600; }
 .deck-area {
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-width: calc(var(--card-w) + 40px);
+  gap: 6px;
   flex-shrink: 0;
 }
 
 .deck {
   position: relative;
-  width: var(--card-w);
+  width: calc(var(--card-w) * 1.45);
   height: var(--card-h);
-}
-.deck .face-down {
-  position: absolute;
-  left: calc(var(--card-w) * 0.22);
-  top: 0;
-  box-shadow: -2px 0 6px rgba(0,0,0,0.08);
 }
 .deck .trump-card {
   position: absolute;
   left: 0;
-  top: calc(var(--card-h) * 0.28);
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
+  top: 0;
 }
-.deck .count {
+.deck .face-down {
   position: absolute;
-  bottom: -18px;
-  left: 0;
   right: 0;
-  text-align: center;
-  font-size: 11px;
-  color: #5b5751;
+  top: 0;
+  box-shadow: -2px 0 6px rgba(0,0,0,0.10);
 }
 
 .table {

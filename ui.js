@@ -77,6 +77,7 @@ function renderTable() {
   if (state.deck.length > 0) {
     const trump = document.createElement('div');
     trump.className = 'card trump-card ' + (isRed(state.trumpSuit) ? 'red' : 'black');
+    if (isTrump(state.trumpCard, state.trumpSuit)) trump.classList.add('trump');
     trump.appendChild(makeCardFace(state.trumpCard));
     deckEl.appendChild(trump);
     if (state.deck.length > 1) {
@@ -84,10 +85,6 @@ function renderTable() {
       back.className = 'card face-down';
       deckEl.appendChild(back);
     }
-    const count = document.createElement('div');
-    count.className = 'count';
-    count.textContent = 'осталось ' + state.deck.length;
-    deckEl.appendChild(count);
   }
 
   // Discard.
